@@ -3,11 +3,11 @@ const hello = (req, res) => (async () => {
 res.json({ status: "ok", "mensagem": "Olá segundo!" });
 })();
 const helloUserGet = (request, res) => (async () =>{
-const { username } = request.body
+const { username } = request.query;
 res.json({ status: "ok", "nomeusuario": username });
 } )();
 const helloUserPost = (request, res) => (async () =>{
-const { username } = request.body
+const { username } = request.body;
 res.json({ status: "ok", "nomeusuario": username });
 } )();
 module.exports = {
