@@ -13,7 +13,7 @@ routerApp.get("/", (req, res) => {
 
 //Rotas de Alunos
 
-routerApp.get("/getAllAlunos", appAlunos.GetAllAlunos);
+routerApp.get("/getAllAlunos", appLogin.AutenticaJWT, appAlunos.GetAllAlunos);
 routerApp.get("/getAlunoByID/:alunoid", appLogin.AutenticaJWT, appAlunos.GetAlunoByID);
 routerApp.post("/insertAluno", appLogin.AutenticaJWT, appAlunos.InsertAluno);
 routerApp.put("/updateAluno/:alunoid", appLogin.AutenticaJWT, appAlunos.UpdateAluno);
