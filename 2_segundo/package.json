@@ -1,0 +1,15 @@
+{
+  "name": "dw3-2-segundo",
+  "version": "1.0.0",
+  "description": "Atividade 2 — introdução a controllers e rotas no Express",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
