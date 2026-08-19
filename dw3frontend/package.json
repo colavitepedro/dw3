@@ -1,8 +1,13 @@
 {
-  "name": "dw3frontend",
+  "name": "dw3-frontend",
+  "version": "1.0.0",
+  "description": "Frontend Express com Nunjucks — login, home, alunos e cursos",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "node ./bin/www"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "dependencies": {
     "body-parser": "^2.3.0",

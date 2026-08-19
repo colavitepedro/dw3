@@ -1,4 +1,4 @@
-//-- Arquiv routes/router.js
+//-- arquivo: dw3backend/routes/router.js
 
 const express = require("express");
 const routerApp = express.Router();
@@ -6,11 +6,6 @@ const routerApp = express.Router();
 const appAlunos = require("../apps/alunos/controller/ctlAlunos");
 const appCursos = require("../apps/cursos/controller/ctlCursos");
 const appLogin = require("../apps/login/controller/ctlLogin");
-
-// middleware that is specific to this router
-routerApp.use((req, res, next) => {
-  next();
-});
 
 routerApp.get("/", (req, res) => {
   res.send("Olá mundo!");

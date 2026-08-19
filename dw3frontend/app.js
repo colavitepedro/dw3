@@ -1,23 +1,28 @@
+//-- arquivo: dw3frontend/app.js
 
-//-- app.js
-//-- Para rodar: node app.js 
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const nunjucks = require('nunjucks');
 
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var nunjucks = require('nunjucks');
+const indexRouter = require('./routes/rtIndex');
+const loginRouter = require('./routes/rtLogin');
+const homeRouter = require('./routes/rtHome');
+const alunosRouter = require('./routes/rtAlunos');
+const cursosRouter = require('./routes/rtCursos');
+const logoutRouter = require('./routes/logout');
 
-var indexRouter = require('./routes/rtIndex');
-var loginRouter = require('./routes/rtLogin');
-var homeRouter = require('./routes/rtHome');
+require('dotenv').config();
 
-require('dotenv').config({ path: path.join(__dirname, 'dw3frontend.env'), quiet: true });
-
-var app = express();
-var viewsPath = path.join(__dirname, 'views');
+const app = express();
+const viewsPath = path.join(__dirname, 'views');
+const appName = process.env.APP_NAME || 'dw3frontend';
 const port = process.env.PORT || 40100;
+
+app.set('name', appName);
 app.set('views', viewsPath);
 app.set('view engine', 'njk');
+app.set('port', port);
 
 nunjucks.configure(viewsPath, {
   autoescape: true,
@@ -33,6 +38,9 @@ app.use('/apps', express.static(path.join(__dirname, 'apps')));
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/home', homeRouter);
+app.use('/alunos', alunosRouter);
+app.use('/cursos', cursosRouter);
+app.use('/sair', logoutRouter);
 
 app.use(function(req, res, next) {
   next(createError(404));
@@ -46,6 +54,4 @@ app.use(function(err, req, res, next) {
   res.render('error', { title: 'Erro' });
 });
 
-app.listen(port, () => {
-  console.log(`App listening at port ${port}`)
-})
+module.exports = app;

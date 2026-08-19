@@ -1,13 +1,15 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var nunjucks = require('nunjucks');
+//-- arquivo: dw3frontendlayout/app.js
 
-// var indexRouter = require('./routes/index');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const nunjucks = require('nunjucks');
+require('dotenv').config();
 
-var app = express();
-var viewsPath = path.join(__dirname, 'views');
+const app = express();
+const viewsPath = path.join(__dirname, 'views');
 const port = process.env.PORT || 40100;
+
 app.set('views', viewsPath);
 app.set('view engine', 'njk');
 
@@ -38,5 +40,5 @@ app.use(function(err, req, res, next) {
 });
 
 app.listen(port, () => {
-  console.log(`App listening at port ${port}`)
-})
+  console.log(`App listening at port ${port}`);
+});

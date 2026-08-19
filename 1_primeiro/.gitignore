@@ -1,0 +1,5 @@
+//-- arquivo: 1_primeiro/.gitignore
+node_modules/
+.env
+*.log
+.DS_Store
